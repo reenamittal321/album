@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Albums</h1>
+ <div class="table-responsive">   
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr >
+        <td ><%= post.title %></td>
+        <td class="info"><%= link_to 'Show', post, :class => "btn btn-primary btn-sm active", :role => "button" %></td>
+
+        <td class="success"><%= link_to 'Edit', edit_post_path(post), :class => "btn btn-info btn-sm active", :role => "button" %></td>
+
+         <td class="warning"><%= link_to 'Delete', post_path(post),method: :delete, data: {confirm: 'Are you Sure'}, :class => "btn btn-default btn-sm active", :role => "button"  %></td>
+
+        <td class="danger"><%= link_to 'Destroy', posts_destroyed_path(post), data: { confirm: 'Are u sure'}, :class => "btn btn-default btn-sm active", :role => "button" %></td>
+     
+  
+    <% end %>
+  </tbody>
+ </tr>
+
+</div>
+<br>
+<tr><td align="center"><%= will_paginate @posts %>
+</td></tr><br>
+<tr><td>
+<%= link_to 'Deleted Albums', removed_path %></td>
+<td><%= link_to 'New Album', new_post_path %></td>
+</tr>
+</table>
+
+

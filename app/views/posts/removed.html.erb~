@@ -1,0 +1,12 @@
+
+<% @p.each do |a| %>
+<table ><tr><td>
+<%= a.title %></td>
+
+<td><%= link_to "restore", posts_restore_path(a), data: { confirm: 'Are u sure?'}, :class => "btn btn-default btn-sm active", :role => "button" %></td>
+<td><%= link_to "really_destroy", posts_destroyed_path(a), data: { confirm: 'Sure u want to destroy it?'}, :class => "btn btn-default btn-sm active", :role => "button" %>
+</td>
+</tr>
+</table>
+<br>
+<% end %>

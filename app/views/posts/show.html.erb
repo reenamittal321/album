@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+<tr></td>
+
+  <strong><h3>Title:</strong>
+  <%= @post.title %></h3>
+<br>
+</td></tr>
+
+   <tr> <% @post_attachment.each do |p| %>
+ <td><%= image_tag p.avatar_url, :class => "img-responsive" %></td>
+            
+	    <td><%= link_to "Edit Attachment", edit_post_attachment_path(p), :class => "btn btn-default btn-sm active", :role => "button" %></td>
+
+ <% p.tags.each do |b| %>  
+              
+ <td><%= link_to b.tag_name, tag_path(b.id), :class => "btn btn-link btn-sm active" %></td>
+  <% end %>
+</tr>
+<% end %>
+</table>
+<%= link_to 'Edit', edit_post_path(@post), :class => "btn btn-default btn-sm active", :role => "button" %> 
+<%= link_to 'Back', posts_path, :class => "btn btn-default btn-sm active", :role => "button" %>

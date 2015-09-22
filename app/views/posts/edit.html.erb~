@@ -1,0 +1,57 @@
+<h1>Editing Post</h1>
+<%= form_for(@post, :html => { :multipart => true }) do |f| %>
+         <table class="table">
+  <div>  <tr>  <%= f.fields_for :post_attachments do |p| %>
+  
+
+          <td><%= image_tag p.object.avatar %>
+         
+        <%= p.file_field :avatar %></td>
+          
+         <td> <%= link_to 'delete', post_attachment_path(p.object.id), method: :delete, data: { confirm: 'Are you sure'}, :class => "btn btn-danger btn-sm active", :role => "button" %><br>
+</td>
+            <td> Tag:<br><%= p.fields_for :tags do |a| %>           
+                  <%= a.text_field :tag_name %><br>
+                 <% end %></td></tr>
+
+           
+
+    <% end %>
+
+
+	<tr><td> <%= f.file_field :avatar, :name => "post[post_attachments_attributes][4][avatar]" %><br>
+             <%= f.fields_for :tags do |a| %>
+          Add Tag: <br><%= a.text_field :tag_name, :name => "post[post_attachments_attributes][4][tags_attributes][0][tag_name]" %><br>
+                       <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][4][tags_attributes][1][tag_name]" %><br>
+                       <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][4][tags_attributes][2][tag_name]" %><br>
+             <% end %></td></tr>
+<br> 
+<tr><td>
+<%= f.file_field :avatar, :name => "post[post_attachments_attributes][5][avatar]" %><br>
+        
+             <%= f.fields_for :tags do |a| %>
+          Add Tag: <br><%= a.text_field :tag_name, :name => "post[post_attachments_attributes][5][tags_attributes][0][tag_name]" %><br>
+                       <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][5][tags_attributes][1][tag_name]" %><br>
+                       <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][5][tags_attributes][2][tag_name]" %><br>
+          <% end %>
+</td></tr>
+<tr><td>
+<%= f.file_field :avatar, :name => "post[post_attachments_attributes][6][avatar]" %><br>
+            <%= f.fields_for :tags do |a| %>
+          Add Tag: <br><%= a.text_field :tag_name, :name => "post[post_attachments_attributes][6][tags_attributes][0][tag_name]" %><br>
+                       <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][6][tags_attributes][1][tag_name]" %><br>
+                       <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][6][tags_attributes][2][tag_name]" %><br>
+             <% end %>
+ 
+</td></tr></div>
+</table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Add', new_post_attachment_path, :class => "btn btn-default btn-sm active", :role => "button" %>
+<%= link_to 'Show', @post, :class => "btn btn-default btn-sm active", :role => "button" %> 
+<%= link_to 'Back', posts_path, :class => "btn btn-default btn-sm active", :role => "button" %>
+

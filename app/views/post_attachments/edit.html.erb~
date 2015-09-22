@@ -1,0 +1,31 @@
+<h1>Editing Post Attachment</h1>
+
+<%= form_for(@post_attachment, :html => { :multipart => true }) do |f| %>
+   
+
+<%= f.label :avatar %><br>
+   
+  
+  <div class="field">
+    <%= f.label :post_id %><br>
+    <%= f.number_field :post_id %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar %><br>
+    <%= f.file_field :avatar %>
+  </div>
+     
+   <div>
+     <%= f.fields_for :tags do |a| %>
+       Add Tag: <%= a.text_field :tag_name %>
+     <% end %>
+   </div> 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
+
+<%= link_to 'Show', @post_attachment %> |
+<%= link_to 'Back', post_path %>

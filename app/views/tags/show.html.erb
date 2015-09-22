@@ -1,0 +1,12 @@
+<div id="hello"><h3>Tag:
+<%= @tag.tag_name %></h3><br>  
+
+
+<% @tags.each do |p| %>
+<%= image_tag p.post_attachment.avatar_url %> <br>
+<br>
+<% end %>
+<br><br>
+<%= link_to "Back", posts_path, :class => "btn btn-default btn-sm active", :role => "button" %>
+</div>
+

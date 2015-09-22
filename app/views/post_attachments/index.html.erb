@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Post Attachments</h1>
+  
+<table>
+  
+
+  <tbody>
+    <% @post_attachments.each do |post_attachment| %>
+      <tr> <%= image_tag post_attachment.avatar_url %>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Back', posts_path %>
+<%= link_to 'New Post attachment', new_post_attachment_path %>
+ 

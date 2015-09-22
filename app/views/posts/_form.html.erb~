@@ -1,0 +1,53 @@
+<%= form_for(@post, :html => { :multipart => true }) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :placeholder => "Name" %>
+   </div>
+
+<%= f.label :avatar %><br>
+<%= f.fields_for :post_attachments do |p| %>
+     <div class="field">
+              
+        <%= p.file_field :avatar, :name => "post[post_attachments_attributes][0][avatar]" %><br>
+
+ <%= p.fields_for :tags do |a| %>
+        Add Tag: <br><%= a.text_field :tag_name, :name => "post[post_attachments_attributes][0][tags_attributes][0][tag_name]" %><br>
+       <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][0][tags_attributes][1][tag_name]" %><br>
+<%= a.text_field :tag_name, :name => "post[post_attachments_attributes][0][tags_attributes][2][tag_name]" %><br>
+<% end %>
+<br>
+	<%= p.file_field :avatar, :name => "post[post_attachments_attributes][1][avatar]" %><br>
+
+ <%= p.fields_for :tags do |a| %>
+Add Tag:<br>
+<%= a.text_field :tag_name, :name => "post[post_attachments_attributes][1][tags_attributes][0][tag_name]" %><br>
+                    <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][1][tags_attributes][1][tag_name]" %><br>
+<%= a.text_field :tag_name, :name => "post[post_attachments_attributes][1][tags_attributes][2][tag_name]" %><br>
+<% end %><br>
+        <%= p.file_field :avatar, :name => "post[post_attachments_attributes][2][avatar]" %><br>
+
+<%= p.fields_for :tags do |a| %>
+Add Tag:<br>
+<%= a.text_field :tag_name, :name => "post[post_attachments_attributes][2][tags_attributes][0][tag_name]" %><br>
+                    <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][2][tags_attributes][1][tag_name]" %><br>
+<%= a.text_field :tag_name, :name => "post[post_attachments_attributes][2][tags_attributes][3][tag_name]" %><br>
+
+<% end %><br>
+        <%= p.file_field :avatar, :name => "post[post_attachments_attributes][3][avatar]" %><br>
+         
+<%= p.fields_for :tags do |a| %>
+Add Tag:<br>
+<%= a.text_field :tag_name, :name => "post[post_attachments_attributes][3][tags_attributes][0][tag_name]" %><br>
+                    <%= a.text_field :tag_name, :name => "post[post_attachments_attributes][3][tags_attributes][1][tag_name]"  %> <br>
+<%= a.text_field :tag_name, :name => "post[post_attachments_attributes][3][tags_attributes][3][tag_name]" %><br>
+<% end %><br>
+       
+       </div>
+   <% end %>
+  <div class="active">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
