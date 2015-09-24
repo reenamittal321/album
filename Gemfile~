@@ -6,7 +6,7 @@ gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
-
+gem 'sqlite3'
 # Use Uglifier as compressor for JavaScript assets
 
 # Use CoffeeScript for .coffee assets and views
@@ -35,7 +35,7 @@ gem 'pg'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-gem 'sqlite3'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 gem 'execjs'

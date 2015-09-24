@@ -6,7 +6,7 @@ gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
-gem 'sqlite3'
+
 # Use Uglifier as compressor for JavaScript assets
 
 # Use CoffeeScript for .coffee assets and views
